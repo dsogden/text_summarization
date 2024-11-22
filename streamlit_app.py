@@ -11,7 +11,7 @@ def get_summary(
         model: T5ForConditionalGeneration, input_text: str
     ) -> str:
     """
-    Returns the number of top words to be summarized from the text.
+    Returns text summary.
     """
     input_ids = tokenizer.encode("summarize: " + input_text[:512], return_tensors="pt")
     outputs = model.generate(
