@@ -5,7 +5,7 @@ tokenizer = T5Tokenizer.from_pretrained('t5-large')
 model = T5ForConditionalGeneration.from_pretrained('t5-large')
 
 def get_keywords(
-        model: TT5ForConditionalGeneration, input_text: str
+        model: T5ForConditionalGeneration, input_text: str
     ) -> str:
     """
     Returns the number of top words to be summarized from the text.
