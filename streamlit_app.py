@@ -13,7 +13,7 @@ def get_summary(
     """
     Returns the number of top words to be summarized from the text.
     """
-    input_ids = tokenizer.encode("summarize: " + input_text[:512], return_tensors="pt")
+    input_ids = tokenizer.encode("summarize: " + input_text, return_tensors="pt")
     outputs = model.generate(
         input_ids, max_length=150, min_length=50, num_beams=4, early_stopping=True
     )
