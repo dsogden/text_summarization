@@ -25,8 +25,8 @@ st.write("Enter a text below to summarize the text:")
 user_input = st.text_area('Text to analyze', placeholder="Type something...")
 if st.button('Summarize Text'):
     if len(user_input) > 0:
-        summary = get_summary(user_input)
-        st.write(model, summary)
+        summary = get_summary(model, user_input)
+        st.write(summary)
     else:
         st.warning("Please enter some text to analyze.")
 
