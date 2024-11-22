@@ -23,7 +23,7 @@ def get_keywords(
 st.title("Text Summarizer")
 st.write("Enter a text below to summarize the text:")
 user_input = st.text_area('Text to analyze', placeholder="Type something...")
-if st.button('Analyze Sentiment'):
+if st.button('Summarize Text'):
     if len(user_input) > 0:
         encoded = tokenizer(user_input, return_tensors="pt")
         output = model(**encoded)
