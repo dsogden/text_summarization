@@ -3,8 +3,8 @@ import torch
 
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-tokenizer = T5Tokenizer.from_pretrained("google-t5/t5-large")
-model = T5ForConditionalGeneration.from_pretrained("google-t5/t5-large")
+tokenizer = T5Tokenizer.from_pretrained("google-t5/t5-small")
+model = T5ForConditionalGeneration.from_pretrained("google-t5/t5-small")
 
 
 def get_summary(
