@@ -3,11 +3,11 @@ import torch
 
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-tokenizer = T5Tokenizer.from_pretrained("google-t5/t5-small")
-model = T5ForConditionalGeneration.from_pretrained("google-t5/t5-small")
+tokenizer = T5Tokenizer.from_pretrained("google-t5/t5-large")
+model = T5ForConditionalGeneration.from_pretrained("google-t5/t5-large")
 
 
-def get_keywords(
+def get_summary(
         model: T5ForConditionalGeneration, input_text: str
     ) -> str:
     """
@@ -25,11 +25,8 @@ st.write("Enter a text below to summarize the text:")
 user_input = st.text_area('Text to analyze', placeholder="Type something...")
 if st.button('Summarize Text'):
     if len(user_input) > 0:
-        encoded = tokenizer(user_input, return_tensors="pt")
-        output = model(**encoded)
-        predicted_class_id = output['logits'].argmax().item()
-        prediction = model.config.id2label[predicted_class_id]
-        st.write(prediction)
+        summary = get_summary(user_input)
+        st.write(summary)
     else:
         st.warning("Please enter some text to analyze.")
 
